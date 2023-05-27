@@ -1,6 +1,7 @@
 import React, { FC } from "react";
 import { Button, Col, Image, Row } from "react-bootstrap";
 import { IPostItem } from "../types/props";
+import { normaliseDate } from "../functions/date";
 
 const PostItem: FC<IPostItem> = ({ post }) => {
     return (
@@ -12,13 +13,13 @@ const PostItem: FC<IPostItem> = ({ post }) => {
                 <Col md={3}>
                     <p>
                         <b>Пост создан: </b>
-                        {post.createdAt.toDateString()}
+                        {normaliseDate(post.createdAt)}
                     </p>
                 </Col>
                 <Col md={3}>
                     <p>
                         <b>Пост обновлен: </b>
-                        {post.updatedAt.toDateString()}
+                        {normaliseDate(post.updatedAt)}
                     </p>
                 </Col>
                 <Col md={2}>

@@ -5,6 +5,7 @@ import { useForm, SubmitHandler } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
 import { IRegistrationFields } from "../types/auth";
 import { LOGIN_ROUTE } from "../utils/consts";
+import { registration } from "../http/userAPI";
 
 const Registration: FC = observer(() => {
     const navigate = useNavigate();
@@ -21,7 +22,7 @@ const Registration: FC = observer(() => {
     const registrationHandler = async () => {
         try {
             const values = getValues();
-            // const data = await registration(values.login, values.password);
+            await registration(values.login, values.password);
             navigate(LOGIN_ROUTE);
         } catch (error: Error | unknown) {
             alert(error);

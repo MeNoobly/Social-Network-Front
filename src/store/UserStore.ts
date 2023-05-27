@@ -2,7 +2,7 @@ import { makeAutoObservable } from "mobx";
 import { IUser } from "../types/store";
 
 export default class UserStore {
-    private _isAuth = true;
+    private _isAuth = false;
     private _user: IUser | {} = {};
 
     constructor() {

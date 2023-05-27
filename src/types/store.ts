@@ -1,6 +1,7 @@
 export interface IUser {
+    id?: number;
     login: string;
-    password: string;
+    password?: string;
 }
 
 export interface IUserStore {
@@ -9,6 +10,7 @@ export interface IUserStore {
 }
 
 export interface IPost {
+    id: number;
     message: string;
     title: string;
     createdAt: Date;

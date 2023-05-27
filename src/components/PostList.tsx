@@ -10,7 +10,7 @@ const PostList: FC<IPostListItem> = ({ posts }) => {
                 Добавить пост
             </Button>
             {posts.map((post) => (
-                <PostItem post={post} />
+                <PostItem post={post} key={post.id} />
             ))}
         </Container>
     );

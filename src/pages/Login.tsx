@@ -6,6 +6,8 @@ import { useNavigate } from "react-router-dom";
 import { Context } from "..";
 import { ILoginFields } from "../types/auth";
 import { MAIN_ROUTE } from "../utils/consts";
+import { login } from "../http/userAPI";
+import { IUser } from "../types/store";
 
 const Login: FC = observer(() => {
     const navigate = useNavigate();
@@ -23,7 +25,8 @@ const Login: FC = observer(() => {
     const loginHandler = async () => {
         try {
             const values = getValues();
-            // const data = await login(values.login, values.password);
+            const data = await login(values.login, values.password);
+            user.user = data as IUser;
             user.isAuth = true;
             reset();
             navigate(MAIN_ROUTE);
