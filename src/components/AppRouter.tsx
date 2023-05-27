@@ -3,7 +3,7 @@ import React, { FC, useContext } from "react";
 import { IContext } from "../types/context";
 import { Context } from "..";
 import { Routes, Route, Navigate } from "react-router-dom";
-import { authRoutes } from "../route";
+import { authRoutes, publicRoutes } from "../route";
 import { LOGIN_ROUTE, MAIN_ROUTE } from "../utils/consts";
 
 const AppRouter: FC = observer(() => {
@@ -16,6 +16,9 @@ const AppRouter: FC = observer(() => {
                     authRoutes.map(({ path, Component }) => (
                         <Route key={path} path={path} element={<Component />} />
                     ))}
+                {publicRoutes.map(({ path, Component }) => (
+                    <Route key={path} path={path} element={<Component />} />
+                ))}
                 {user.isAuth ? (
                     <Route path="*" element={<Navigate to={MAIN_ROUTE} />} />
                 ) : (

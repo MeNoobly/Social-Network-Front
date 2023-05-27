@@ -3,6 +3,7 @@ import ReactDOM from "react-dom/client";
 import App from "./App";
 import { IContext } from "./types/context";
 import UserStore from "./store/UserStore";
+import PostsStore from "./store/PostsStore";
 
 const root = ReactDOM.createRoot(
     document.getElementById("root") as HTMLElement
@@ -10,6 +11,7 @@ const root = ReactDOM.createRoot(
 
 export const Context = createContext<IContext>({
     user: new UserStore(),
+    posts: new PostsStore(),
 });
 
 root.render(
@@ -17,6 +19,7 @@ root.render(
         <Context.Provider
             value={{
                 user: new UserStore(),
+                posts: new PostsStore(),
             }}
         >
             <App />

@@ -9,7 +9,7 @@ export default class UserStore {
         makeAutoObservable(this);
     }
 
-    get isAuth() {
+    get isAuth(): boolean {
         return this._isAuth;
     }
 
@@ -17,7 +17,7 @@ export default class UserStore {
         this._isAuth = isAuth;
     }
 
-    get user() {
+    get user(): IUser | {} {
         return this._user;
     }
 
