@@ -11,6 +11,8 @@ export interface IUserStore {
 
 export interface IPost {
     id: number;
+    author?: string;
+    UserModelId?: number;
     message: string;
     title: string;
     createdAt: Date;
@@ -20,4 +22,5 @@ export interface IPost {
 
 export interface IPostsStore {
     posts: IPost[];
+    setPosts: (posts: IPost[]) => void;
 }

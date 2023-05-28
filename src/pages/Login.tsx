@@ -28,6 +28,7 @@ const Login: FC = observer(() => {
             const data = await login(values.login, values.password);
             user.user = data as IUser;
             user.isAuth = true;
+            localStorage.setItem("user", JSON.stringify(user.user));
             reset();
             navigate(MAIN_ROUTE);
         } catch (error: Error | unknown) {

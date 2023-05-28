@@ -15,10 +15,10 @@ const App = observer(() => {
     useEffect(() => {
         check()
             .then(() => {
+                user.user = JSON.parse(localStorage.getItem("user") as string);
                 user.isAuth = true;
             })
-            .finally(() => setIsLoading(false))
-            .catch(() => (user.isAuth = false));
+            .finally(() => setIsLoading(false));
     }, [user]);
 
     if (isLoading) {

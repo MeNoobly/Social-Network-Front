@@ -2,8 +2,9 @@ import React, { FC } from "react";
 import { Button, Container } from "react-bootstrap";
 import { IPostListItem } from "../types/props";
 import PostItem from "./PostItem";
+import { observer } from "mobx-react-lite";
 
-const PostList: FC<IPostListItem> = ({ posts }) => {
+const PostList: FC<IPostListItem> = observer(({ posts }) => {
     return (
         <Container>
             <Button variant="success" className="mt-4">
@@ -14,6 +15,6 @@ const PostList: FC<IPostListItem> = ({ posts }) => {
             ))}
         </Container>
     );
-};
+});
 
 export default PostList;

@@ -1,4 +1,6 @@
-export function normaliseDate(date: Date): string {
+export function normaliseDate(inputDate: Date): string {
+    const date = new Date(inputDate);
+
     if (date.getHours() < 10 && date.getMinutes() < 10) {
         return `${date.getDate()}/${
             date.getMonth() + 1

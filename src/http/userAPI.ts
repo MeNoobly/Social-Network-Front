@@ -51,3 +51,17 @@ export const check = async () => {
         }
     }
 };
+
+export const getUser = async (id: number) => {
+    try {
+        const user = await $authHost.get<IUser>(
+            `http://localhost:3001/api/user/${id}`
+        );
+
+        return user;
+    } catch (error: Error | unknown) {
+        if (error instanceof Error) {
+            throw new Error(error.message);
+        }
+    }
+};
